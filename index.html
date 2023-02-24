@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="header">
+      <p>OVKL ToolSys 2.0</p>
+    </div>
+    <div class="icons">
+      <img src="Timer.png" alt="" width="100" />
+      <img src="message.png" alt="" width="100" />
+      <img src="loop.png" alt="" width="100" />
+    </div>
+    <div class="title">
+      <p>СВЕРЛЕНИЕ</p>
+    </div>
+    <div class="progressbar">
+      <div class="progr" id="progr"></div>
+    </div>
+    <div class="time-to-end">
+      <p>ВРЕМЯ ДО ЗАВЕРШЕНИЯ</p>
+    </div>
+    <div class="time-second" id="timeToEnd">100 СЕКУНД</div>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,700;1,400&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: "Open Sans", sans-serif;
+        font-weight: 400;
+        background-color: #8badce;
+      }
+      .header {
+        height: 12vh;
+        background-color: #fff;
+        font-size: 72px;
+      }
+      .header p {
+        margin-left: 20px;
+      }
+      .icons {
+        margin-top: 20px;
+      }
+      .icons * {
+        margin-left: 20px;
+      }
+      .title {
+        font-size: 72px;
+        font-weight: 700;
+        color: #fefa74;
+        text-align: center;
+      }
+      .progressbar {
+        width: 60vw;
+        margin: auto;
+        height: 100px;
+        background-color: #7a8b99;
+        padding: 5px;
+      }
+      .progr {
+        background-color: #fefa74;
+        width: 0;
+        height: 100px;
+      }
+      .time-to-end {
+        text-align: center;
+        margin-top: 30px;
+        font-size: 72px;
+        color: #fefa74;
+        font-weight: 800;
+      }
+      .time-second {
+        text-align: center;
+        font-size: 72px;
+        font-weight: 800;
+        color: #fefa74;
+      }
+    </style>
+    <script>
+      let progressbar = document.getElementById("progr");
+      let timeToEnd = document.getElementById("timeToEnd");
+
+      let curTime = 0;
+      let last = 100;
+      let timer = setInterval(() => {
+        progressbar.style.width = curTime + "%";
+        curTime += 1;
+        last -= 1;
+        if (curTime == 100) {
+          clearInterval(timer);
+        }
+        timeToEnd.innerText = last + " СЕКУНД";
+      }, 1000);
+
+      setInterval;
+    </script>
+  </body>
+</html>
